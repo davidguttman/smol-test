@@ -1,23 +1,26 @@
-Shared Dependencies:
+1. Dependencies: 
+   - Express: Used in "app.js", "server/routes/api.js", and "server/controllers/scrapeController.js" for creating server and handling API routes.
+   - React: Used in "src/App.js", "src/index.js", "src/components/UrlInput.js", "src/components/ScrapedPage.js", and "src/components/AboutPage.js" for building the user interface.
+   - Mongoose: Used in "server/models/ScrapedData.js" and "server/db/mongoose.js" for database schema and connection.
 
-1. Express: Used in "app/server.js", "app/routes/scraperRoutes.js", "app/controllers/scraperController.js". It is a web application framework for Node.js, used to build web applications and APIs.
+2. Exported Variables:
+   - "app" from "app.js": Used in "server/routes/api.js" for defining routes.
+   - "ScrapedData" from "server/models/ScrapedData.js": Used in "server/controllers/scrapeController.js" for database operations.
 
-2. React: Used in "client/src/index.js", "client/src/App.js", "client/src/components/UrlInput.js", "client/src/components/ScrapedPage.js". It is a JavaScript library for building user interfaces.
+3. Data Schemas:
+   - "ScrapedDataSchema" in "server/models/ScrapedData.js": Used for defining the structure of the data to be stored in the database.
 
-3. ScraperController: Exported from "app/controllers/scraperController.js" and used in "app/routes/scraperRoutes.js". It contains the logic for handling requests related to web scraping.
+4. DOM Elements:
+   - "url-input" in "src/components/UrlInput.js": Used for accepting URL input from the user.
+   - "scraped-page" in "src/components/ScrapedPage.js": Used for displaying the scraped HTML.
+   - "about-page" in "src/components/AboutPage.js": Used for displaying the about page.
 
-4. ScraperModel: Exported from "app/models/scraperModel.js" and used in "app/controllers/scraperController.js". It defines the data schema for storing scraped data.
+5. Message Names:
+   - "URL_SUBMITTED" in "src/components/UrlInput.js": Used for handling the event when a URL is submitted.
+   - "PAGE_SCRAPED" in "src/components/ScrapedPage.js": Used for handling the event when a page is scraped.
 
-5. db: Exported from "app/config/db.js" and used in "app/models/scraperModel.js". It is used to connect to the database.
-
-6. scraperService: Exported from "client/src/services/scraperService.js" and used in "client/src/components/UrlInput.js". It contains the logic for making API requests related to web scraping.
-
-7. UrlInput and ScrapedPage: React components exported from "client/src/components/UrlInput.js" and "client/src/components/ScrapedPage.js" respectively, and used in "client/src/App.js". They define parts of the user interface.
-
-8. id names: "url-input" in "client/src/components/UrlInput.js", "scraped-page" in "client/src/components/ScrapedPage.js". They are used to identify DOM elements.
-
-9. Message names: "SCRAPING_SUCCESS", "SCRAPING_ERROR". They are used to handle different states of the scraping process.
-
-10. Function names: "scrapeUrl" in "app/controllers/scraperController.js" and "client/src/services/scraperService.js", "renderScrapedPage" in "client/src/components/ScrapedPage.js". They are used to perform specific tasks related to web scraping.
-
-11. Package.json and package-lock.json: These files are present in both the "app" and "client" directories. They contain the metadata about the project and lock down the versions of the project's dependencies respectively.
+6. Function Names:
+   - "handleSubmit" in "src/components/UrlInput.js": Handles the event when a URL is submitted.
+   - "scrapePage" in "server/controllers/scrapeController.js": Handles the scraping of the page.
+   - "displayScrapedPage" in "src/components/ScrapedPage.js": Handles the display of the scraped page.
+   - "displayAboutPage" in "src/components/AboutPage.js": Handles the display of the about page.

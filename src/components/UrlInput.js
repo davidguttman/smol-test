@@ -1,24 +1,22 @@
 import React, { useState } from 'react';
-import scraperService from '../services/scraperService';
 
 const UrlInput = () => {
   const [url, setUrl] = useState('');
 
-  const handleInputChange = (event) => {
-    setUrl(event.target.value);
-  };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
-    try {
-      const response = await scraperService.scrapeUrl(url);
-      if (response.status === 200) {
-        // handle success
-      } else {
-        // handle error
-      }
-    } catch (error) {
-      // handle error
+    const response = await fetch('/api/scrape', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ url }),
+    });
+    const data = await response.json();
+    if (data.success) {
+      window.location.href = `/scraped/${data.id}`;
+    } else {
+      alert('Failed to scrape the page. Please try again.');
     }
   };
 
@@ -30,7 +28,8 @@ const UrlInput = () => {
           id="url-input"
           type="text"
           value={url}
-          onChange={handleInputChange}
+          onChange={(e) => setUrl(e.target.value)}
+          required
         />
       </label>
       <button type="submit">Scrape</button>
