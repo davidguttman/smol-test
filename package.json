@@ -1,0 +1,22 @@
+{
+  "name": "web-scraper",
+  "version": "1.0.0",
+  "description": "A web application that scrapes HTML from a given URL, stores it in a database, and provides a shareable copy.",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": ["web-scraper", "express", "react"],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "axios": "^0.21.1",
+    "cheerio": "^1.0.0-rc.10",
+    "mongoose": "^5.12.3",
+    "cors": "^2.8.5"
+  }
+}
