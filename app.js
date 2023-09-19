@@ -4,16 +4,24 @@ const apiRoutes = require('./server/routes/api');
 
 const app = express();
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'public')));
+// Middleware
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
-// Use api routes
+// API routes
 app.use('/api', apiRoutes);
 
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// About page
+app.get('/about', (req, res) => {
+  res.send('This project is a web application that allows users to enter a URL. The application will then scrape the HTML from that URL, store it in a database, and provide a shareable copy of the scraped data.');
+});
+
+// The "catchall" handler: for any request that doesn't match one above, send back React's index.html file.
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname+'/public/index.html'));
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 const port = process.env.PORT || 5000;
